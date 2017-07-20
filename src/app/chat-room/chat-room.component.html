@@ -1,28 +1,49 @@
-<h2>Received messages:</h2>
+<div class="modal is-active" *ngIf="!nameIsSaved">
+  <div class="modal-background"></div>
+  <div class="modal-content">
+    <div class="box">
+      <h2>What's your name?</h2>
+      <input
+      [(ngModel)]="message.author"
+      name="author"
+      type="text"
+      class="form-control input"
+      placeholder="Your Name"
+      (keyup.enter)="saveName()">
+      <br><br>
+      <button class="button is-primary"[disabled]="!message.author"(click)="saveName()">Save</button>
+    </div>
+  </div>
+</div>
 <div #messagesContainer class="messages box yellow">
-  <p *ngFor="let msg of messages" class="notification is-secondary" [ngClass]="{'is-warning' : msg.author==='Server'}">
-    ({{msg.author}})
-    {{msg.message}} ({{msg.newDate}})</p>
+  <ul>
+    <li *ngFor="let msg of messages" class="notification is-small is-secondary" [ngClass]="{'is-warning' : msg.author==='Server','is-primary':msg.author === message.author}">
+    {{msg.author}}:
+    {{msg.message}} <span class="date">({{msg.newDate}})</span></li>
+  </ul>
 </div>
 <div class="messageComposing box">
-  <h2>New message:</h2>
-    <div class="input-group col-xs-8">
-              <input
-              [(ngModel)]="message.author"
-              name="author"
-              type="text"
-              class="form-control input"
-              placeholder="Your Name">
+    <div class="input-group columns is-mobile container">
+      <div class="column is-10">
               <input
                   [(ngModel)]="message.message"
                   name="msg"
                   type="text"
                   class="form-control input"
-                  placeholder="message...">
-              <span class="input-group-btn">
+                  placeholder="message..."
+                  (keyup.enter)="sendMsg()">
+      </div>
+      <div class="column is-1">
+                <span class="input-group-btn">
                   <button
-                      class="button is-warning"
-                      (click)="sendMsg()">send</button>
+                      class="button is-primary"
+                      (click)="sendMsg()"
+                      [disabled]="!this.message.message">
+                      <span class="icon">
+                        <i class="fa fa-send"></i>
+                      </span>
+                    </button>
               </span>
-          </div>
+      </div>
+    </div>
 </div>

@@ -16,7 +16,7 @@ export class ChatRoomComponent implements OnInit, AfterViewChecked {
     author:'',
     message:''
   };
-
+  nameIsSaved:boolean = false;
   secretWord:string;
 
   constructor(private chatService:ChatService) { }
@@ -25,11 +25,19 @@ export class ChatRoomComponent implements OnInit, AfterViewChecked {
     this.scrollDown();
   }
 
+  saveName(){
+    if(!this.message.author)
+      return;
+    this.nameIsSaved = true;
+    console.log(this.nameIsSaved);
+  }
   scrollDown(){
     console.log('its alive');
     this.messagesContainer.nativeElement.scrollTop = this.messagesContainer.nativeElement.scrollHeight;
   }
   sendMsg() {
+  if(!this.message.message)
+    return;
   if(this.secretWord && this.message.message.toLowerCase().includes(this.secretWord)){
     this.messages.push({
       author:'Server',

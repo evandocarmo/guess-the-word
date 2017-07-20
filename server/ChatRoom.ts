@@ -48,9 +48,16 @@ export class ChatRoom {
 		}
 	}
 	removeUser(client:any){ //method to add a user
-		if(client === this.master && this.clients[0]){ //if client is master and there is at least one client
-			this.master = this.clients[0]; //client becomes master
+		if(client === this.master){ //if client is master
+			this.master = this.clients[0]; //oldest client becomes master
 			this.clients.shift();//remove client from array. He's alone in the room now.
+			this.sendMessageToMaster({ //send a message to master to start game
+				author:'Server',
+				message:'You are the master of this room. Your word is ' + this.secretWord.toUpperCase() + '. Describe it, but do not write it.',
+				newDate:new Date().toLocaleString(),
+				role:'Master',
+				secretWord:this.secretWord
+			});
 		}else{ //if client that is leaving is not the master
 			let index = this.clients.indexOf(client); //check what his index in the array is
 			this.clients.splice(index,1);//remove him

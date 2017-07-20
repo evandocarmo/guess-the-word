@@ -6,11 +6,13 @@ import { WebsocketService } from './websocket.service';
 import { AppComponent } from './app.component';
 import { ChatService } from './chat.service';
 import { ChatRoomComponent } from './chat-room/chat-room.component';
+import { NavbarComponent } from './navbar/navbar.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    ChatRoomComponent
+    ChatRoomComponent,
+    NavbarComponent
   ],
   imports: [
     BrowserModule,
