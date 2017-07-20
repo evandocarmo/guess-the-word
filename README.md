@@ -8,4 +8,4 @@ a new word and the game continues. The app uses Typescript on both ends, websock
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files. Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `-prod` flag for a production build.
 
 ## server
-Run 'npm start' to compile and run the websockets on localhost:3500.
+Run `npm start` to compile and run the websockets on `localhost:3500`.
