@@ -12,7 +12,7 @@ export class ChatRoomComponent implements OnInit, AfterViewChecked {
   @ViewChild('messagesContainer') private messagesContainer: ElementRef;
 
   messages: Message[] = [];
-  private message:Message = {
+  public message:Message = {
     author:'',
     message:''
   };
