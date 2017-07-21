@@ -13,7 +13,7 @@
   },
   "engines": {
     "node": "8.1.4",
-    "npm": "5.3.0"
+    "npm": "5.0.3"
   },
   "private": true,
   "dependencies": {
@@ -37,7 +37,7 @@
     "postcss-loader": "^2.0.6",
     "raw-loader": "^0.5.1",
     "rxjs": "^5.1.0",
-    "typescript": "~2.4.0",
+    "typescript": "~2.2.0",
     "webpack": "^2.2.0",
     "zone.js": "^0.8.4",
     "ts-node": "~2.0.0"
