@@ -4,7 +4,7 @@ import {WebsocketService} from './websocket.service';
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/filter';
 
-const CHAT_URL = 'ws://localhost:3005';
+const CHAT_URL = "ws://" + window.location.host + "/socket";
 
 export interface Message {
 	author: string,
@@ -17,7 +17,6 @@ export interface Message {
 @Injectable()
 export class ChatService {
   public messages: Subject<Message>  = new Subject<Message>();
-
   constructor(private wsService: WebsocketService) {
       this.messages = <Subject<Message>>this.wsService.connect(CHAT_URL)
       .map((response:MessageEvent):Message=>{

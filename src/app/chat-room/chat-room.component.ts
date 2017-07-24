@@ -29,7 +29,6 @@ export class ChatRoomComponent implements OnInit, AfterViewChecked {
     if(!this.message.author)
       return;
     this.nameIsSaved = true;
-    console.log(this.nameIsSaved);
   }
   scrollDown(){
     console.log('its alive');
