@@ -6,3 +6,6 @@ a new word and the game continues. The app uses Typescript on both ends, websock
 
 ## server
 Run `ng build` and `npm start` to compile and run.
+
+##Live Demo
+http://safe-lowlands-60235.herokuapp.com
