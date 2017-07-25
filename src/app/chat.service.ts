@@ -4,7 +4,7 @@ import {WebsocketService} from './websocket.service';
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/filter';
 
-const CHAT_URL = "ws://" + window.location.host + "/socket";
+const CHAT_URL = "wss://" + window.location.host + "/socket";
 
 export interface Message {
 	author: string,
