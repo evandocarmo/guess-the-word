@@ -5,12 +5,12 @@
   "scripts": {
     "ng": "ng",
     "start": "npm run build:live",
-    "build:live": "node server.js",
+    "build:live": "nodemon --exec ./node_modules/.bin/ts-node -- server.ts",
     "build": "ng build",
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e",
-    "postinstall": "ng build && npm run start"
+    "postinstall": "ng build && npm start"
   },
   "engines": {
     "node": "8.1.4",
@@ -37,6 +37,7 @@
     "express": "^4.15.3",
     "express-ws": "^3.0.0",
     "nodejs-websocket": "^1.6.0",
+    "nodemon": "^1.11.0",
     "postcss-loader": "^2.0.6",
     "raw-loader": "^0.5.1",
     "rxjs": "^5.1.0",
